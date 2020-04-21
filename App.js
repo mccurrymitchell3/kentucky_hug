@@ -1,7 +1,9 @@
 import React from 'react';
-import Home from './screens/Home';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+
+import Home from './screens/Home';
+import Login from './screens/Login';
 
 export default function App() {
   return (
@@ -12,6 +14,12 @@ export default function App() {
 const AppNavigator = createStackNavigator({
   Home: {
     screen: Home,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Login: {
+    screen: Login,
     navigationOptions: {
       headerShown: false
     }
