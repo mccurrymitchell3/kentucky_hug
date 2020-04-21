@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import Home from './screens/Home';
 import Login from './screens/Login';
+import Profile from './screens/Profile';
 
 export default function App() {
   return (
@@ -20,6 +21,12 @@ const AppNavigator = createStackNavigator({
   },
   Login: {
     screen: Login,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Profile: {
+    screen: Profile,
     navigationOptions: {
       headerShown: false
     }

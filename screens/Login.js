@@ -16,7 +16,7 @@ export default class Login extends Component {
                     <TextInput style={styles.input}></TextInput>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => this.props.navigation.navigate('Login')}>
+                        onPress={() => this.props.navigation.navigate('Profile')}>
                             <Text style={styles.buttonText}>SIGN IN</Text>
                     </TouchableOpacity>
                 </ImageBackground>

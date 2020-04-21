@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     title: {
         marginTop: '10%',
-        marginBottom: '95%',
+        marginBottom: '85%',
         fontSize: 50,
         color: 'white',
         textAlign: 'center',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     button: {
         height: '8%',
-        width: '65%',
+        width: '55%',
         backgroundColor: '#C9623C',
         alignSelf: 'center',
         borderRadius: 30,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 20,
-        marginTop: '5%',
+        marginTop: '6%',
         color: 'white',
         textAlign: 'center',
         fontFamily: 'Chalkduster',
