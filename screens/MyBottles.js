@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -27,7 +28,9 @@ export default class MyBottles extends Component {
                                         <Text style={styles.name}>{item.type}</Text>
                                         <Text style={styles.name}>{item.location}</Text>
                                         <View style={styles.text2}>
+                                            <Ionicons name="md-star" size={25} color="grey"/>
                                             <Text style={styles.name}>{item.rating}</Text>
+                                            <Ionicons name="md-pricetag" size={25} color="grey"/>
                                             <Text style={styles.name}>{item.price}</Text>
                                         </View>
                                     </View>
