@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import profile_background from '../images/profile_background.jpg';
 import profile_icon from '../images/profile_icon.png';
@@ -27,15 +28,31 @@ export default class Profile extends Component {
                         <TouchableOpacity
                         style={styles.list}
                         onPress={() => this.props.navigation.navigate('MyBottles')}>
+                            <MaterialCommunityIcons
+                                name="bottle-wine"
+                                style={styles.icon}
+                            />
                             <Text style={styles.listText}>My Bottles</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.list}>
+                            <MaterialCommunityIcons
+                                name="star-half"
+                                style={styles.icon}
+                            />
                             <Text style={styles.listText}>Ratings</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.list}>
+                            <MaterialCommunityIcons
+                                name="format-list-bulleted"
+                                style={styles.icon}
+                            />
                             <Text style={styles.listText}>Wishlist</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.list}>
+                            <MaterialCommunityIcons
+                                name="medal"
+                                style={styles.icon}
+                            />
                             <Text style={styles.listText}>Achievements</Text>
                         </TouchableOpacity>
                     </View>
@@ -83,15 +100,20 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     list: {
+        flexDirection: 'row',
         height: '25%',
         width: '100%',
         backgroundColor: 'white',
         borderColor: '#875445',
-        borderWidth: 1
+        borderWidth: 1,
+        alignItems: 'center'
     },
     listText: {
-        fontSize: 16,
-        marginTop: '3%',
-        marginLeft: '5%'
+        fontSize: 16
+    },
+    icon: {
+        fontSize: 30,
+        marginHorizontal: '1%',
+        width: '7%'
     }
 });
