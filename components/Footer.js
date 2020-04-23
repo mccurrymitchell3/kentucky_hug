@@ -52,7 +52,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: '8%',
         width: '100%',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        position: 'absolute',
+        bottom: 0
     },
     item: {
         height: '100%',

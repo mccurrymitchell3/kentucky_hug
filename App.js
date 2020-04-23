@@ -7,6 +7,8 @@ import Login from './screens/Login';
 import Profile from './screens/Profile';
 import MyBottles from './screens/MyBottles';
 import Scan from './screens/Scan';
+import Ratings from './screens/Ratings';
+import Wishlist from './screens/Wishlist';
 
 export default function App() {
   return (
@@ -41,6 +43,18 @@ const AppNavigator = createStackNavigator({
   },
   Scan: {
     screen: Scan,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Ratings: {
+    screen: Ratings,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Wishlist: {
+    screen: Wishlist,
     navigationOptions: {
       headerShown: false
     }

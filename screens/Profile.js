@@ -34,14 +34,18 @@ export default class Profile extends Component {
                             />
                             <Text style={styles.listText}>My Bottles</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.list}>
+                        <TouchableOpacity
+                        style={styles.list}
+                        onPress={() => this.props.navigation.navigate('Ratings')}>
                             <MaterialCommunityIcons
                                 name="star-half"
                                 style={styles.icon}
                             />
                             <Text style={styles.listText}>Ratings</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.list}>
+                        <TouchableOpacity
+                        style={styles.list}
+                        onPress={() => this.props.navigation.navigate('Wishlist')}>
                             <MaterialCommunityIcons
                                 name="format-list-bulleted"
                                 style={styles.icon}
