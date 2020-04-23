@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import profile_background from '../images/profile_background.jpg';
 import profile_icon from '../images/profile_icon.png';
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#875445'
+        backgroundColor: '#EEE7DC'
     },
     scroll: {
         width: '100%'
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 20,
-        color: 'white',
+        color: 'black',
         margin: 5,
         textAlign: 'center'
     },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         height: '25%',
         width: '100%',
         backgroundColor: 'white',
-        borderColor: '#875445',
+        borderColor: '#EEE7DC',
         borderWidth: 1,
         alignItems: 'center'
     },
