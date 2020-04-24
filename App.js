@@ -9,6 +9,9 @@ import MyBottles from './screens/MyBottles';
 import Scan from './screens/Scan';
 import Ratings from './screens/Ratings';
 import Wishlist from './screens/Wishlist';
+import Feed from './screens/Feed';
+import Search from './screens/Search';
+import Achievements from './screens/Achievements';
 
 export default function App() {
   return (
@@ -55,6 +58,24 @@ const AppNavigator = createStackNavigator({
   },
   Wishlist: {
     screen: Wishlist,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Feed: {
+    screen: Feed,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Search: {
+    screen: Search,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Achievements: {
+    screen: Achievements,
     navigationOptions: {
       headerShown: false
     }

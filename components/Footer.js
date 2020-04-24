@@ -16,7 +16,7 @@ export default class Footer extends Component {
                         <Text style={styles.text}>Home</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => {}}
+                    onPress={() => {this.props.navigation.navigate('Search')}}
                     style={styles.item}>
                         <Ionicons name="md-search" style={{ fontSize: 35, marginTop: 20 }} />
                         <Text style={styles.text}>Search</Text>
@@ -28,7 +28,7 @@ export default class Footer extends Component {
                         <Text style={styles.text}>Scan</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => {}}
+                    onPress={() => {this.props.navigation.navigate('Feed')}}
                     style={styles.item}>
                         <FontAwesome
                             name="newspaper-o"

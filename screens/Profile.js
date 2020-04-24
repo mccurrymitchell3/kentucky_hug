@@ -52,7 +52,9 @@ export default class Profile extends Component {
                             />
                             <Text style={styles.listText}>Wishlist</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.list}>
+                        <TouchableOpacity
+                        style={styles.list}
+                        onPress={() => this.props.navigation.navigate('Achievements')}>
                             <MaterialCommunityIcons
                                 name="medal"
                                 style={styles.icon}
