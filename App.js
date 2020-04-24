@@ -2,6 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import KentuckyHug from './screens/KentuckyHug';
 import Home from './screens/Home';
 import Login from './screens/Login';
 import Profile from './screens/Profile';
@@ -20,14 +21,20 @@ export default function App() {
 }
 
 const AppNavigator = createStackNavigator({
-  Home: {
-    screen: Home,
+  KentuckyHug: {
+    screen: KentuckyHug,
     navigationOptions: {
       headerShown: false
     }
   },
   Login: {
     screen: Login,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Home: {
+    screen: Home,
     navigationOptions: {
       headerShown: false
     }
@@ -81,7 +88,7 @@ const AppNavigator = createStackNavigator({
     }
   }
 }, {
-  initialRouteName: 'Home',
+  initialRouteName: 'KentuckyHug',
   // defaultNavigationOptions: {
   //   headerShown: false
   // }

@@ -10,7 +10,7 @@ export default class Footer extends Component {
         return (
             <View style={styles.screen}>
                 <TouchableOpacity
-                    onPress={() => {}}
+                    onPress={() => {this.props.navigation.navigate('Home')}}
                     style={styles.item}>
                         <Ionicons name="ios-home" style={{ fontSize: 35, marginTop: 20 }} />
                         <Text style={styles.text}>Home</Text>
