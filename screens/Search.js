@@ -6,6 +6,27 @@ import Header from '../components/Header';
 
 export default class Ratings extends Component {
 
+    getBottles() {
+        fetch('http://' + credentials.ipAddr + ':3000/get_users', {
+            method: 'GET'
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState(() => (
+                    {
+                        firstName: responseJson.firstName,
+                        lastName: responseJson.lastName,
+                        email: responseJson.email,
+                        username: responseJson.username
+                    }
+                ))
+                console.log(responseJson);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     render() {
         return (
             <View style={styles.screen}>
