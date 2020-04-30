@@ -5,7 +5,7 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
-import elijah_craig_small_batch_bourbon from '../images/elijah_craig_small_batch_bourbon.jpg';
+import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
 
 export default class Home extends Component {
 

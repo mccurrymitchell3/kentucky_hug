@@ -5,17 +5,53 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
-import elijah_craig_small_batch_bourbon from '../images/elijah_craig_small_batch_bourbon.jpg';
+import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
+import kentucky_bourbon_festival from '../images/kentucky_bourbon_festival.png'
 
 export default class Feed extends Component {
 
     state = {
-        selectedTab: 'Friends'
+        selectedTab: 'Friends',
+        friendsFeed: [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Mitch McCurry', description: 'rated a bourbon', photo: elijah_craig_small_batch_bourbon, caption: 'Love this!'}],
+        eventsFeed: [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Kentucky Bourbon Festival', description: '', photo: kentucky_bourbon_festival, caption: 'Come try the best bourbons in the world!'}],
+        groupsFeed: [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Mitch McCurry', description: 'rated a bourbon', photo: elijah_craig_small_batch_bourbon, Fcaption: 'Love this!'}]
     }
 
-    render() {
+    loadFeed = () => {
+        if (this.state.selectedTab == 'Friends') {
+            return this.state.friendsFeed
+        } else if (this.state.selectedTab == 'Events') {
+            return this.state.eventsFeed
+        } else {
+            return this.state.groupsFeed
+        }
+    }
 
-        const posts = [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Mitch McCurry', caption: 'Love this!'}]
+    // renderFriends(username) {
+    //     fetch('http://' + credentials.ipAddr + ':3000/get_friends?username=' + user_id, {
+    //         method: 'GET'
+    //     }).then((response) => response.json())
+    //         .then((responseJson) => {
+    //             feed = []
+    //             for (var i = 0; i < responseJson.length; i++) {
+    //                 var datetime = new Date(responseJson[i].time);
+    //                 var post = {
+    //                     name: responseJson[i].firstName + ' ' + responseJson[i].lastName,
+    //                     picture: this.getProfilePic(responseJson[i].firstName),
+    //                     timeStamp: datetime.toLocaleString(),
+    //                     caption: responseJson[i].caption
+    //                 }
+    //                 feed.push(post);
+    //             }
+
+    //             this.setState({ friendsFeed: feed });
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //         });
+    // }
+
+    render() {
         return (
             <View style={styles.screen}>
                 <Header />
@@ -58,11 +94,17 @@ export default class Feed extends Component {
                 </View>
                 <ScrollView style={styles.scroll}>
                     <FlatList
-                        data={posts}
+                        data={this.loadFeed()}
                         renderItem={({ item }) =>
                             <TouchableOpacity
                                 // onPress={() => Alert.alert('Post')}
                                 style={styles.list}>
+                                <View style={styles.profile}>
+                                    <Image source={item.profile_pic} style={styles.profile_picture} />
+                                    <Text style={styles.name}>{item.name} {item.description}</Text>
+                                </View>
+                                <Image source={item.photo} style={styles.image}/>
+                                <Text style={styles.caption}>{item.caption}</Text>
                                 
                             </TouchableOpacity>
                         }
@@ -84,11 +126,8 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     list: {
-        height: 230,
+        height: 280,
         width: '100%',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        flexDirection: 'row',
         marginBottom: '1%',
         backgroundColor: 'white'
     },
@@ -108,5 +147,29 @@ const styles = StyleSheet.create({
         color: 'black',
         textAlign: 'center',
         marginTop: '7%'
+    },
+    profile_picture: {
+        height: 40,
+        width: 40,
+        borderRadius: 30,
+        marginRight: 10
+    },
+    profile: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: 15
+    },
+    name: {
+        fontSize: 18,
+        marginRight: 5
+    },
+    image: {
+        height: 170,
+        width: '90%',
+        borderRadius: 10,
+        alignSelf: 'center'
+    },
+    caption: {
+        margin: 10
     }
 });
