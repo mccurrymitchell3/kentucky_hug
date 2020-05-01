@@ -13,6 +13,7 @@ import Wishlist from './screens/Wishlist';
 import Feed from './screens/Feed';
 import Search from './screens/Search';
 import Achievements from './screens/Achievements';
+import Register from './screens/Register';
 
 export default function App() {
   return (
@@ -23,6 +24,12 @@ export default function App() {
 const AppNavigator = createStackNavigator({
   KentuckyHug: {
     screen: KentuckyHug,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Register: {
+    screen: Register,
     navigationOptions: {
       headerShown: false
     }

@@ -17,7 +17,7 @@ export default class KentuckyHug extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => this.props.navigation.navigate('Home')}>
+                        onPress={() => this.props.navigation.navigate('Register')}>
                             <Text style={styles.buttonText}>REGISTER</Text>
                     </TouchableOpacity>
                 </ImageBackground>
