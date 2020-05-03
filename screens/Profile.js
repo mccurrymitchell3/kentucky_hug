@@ -54,6 +54,15 @@ export default class Profile extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                         style={styles.list}
+                        onPress={() => this.props.navigation.navigate('Notifications')}>
+                            <MaterialCommunityIcons
+                                name="bell"
+                                style={styles.icon}
+                            />
+                            <Text style={styles.listText}>Notifications</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                        style={styles.list}
                         onPress={() => this.props.navigation.navigate('Achievements')}>
                             <MaterialCommunityIcons
                                 name="medal"
@@ -96,8 +105,7 @@ const styles = StyleSheet.create({
     profileList: {
         height: '40%',
         width: '100%',
-        marginTop: '30%'
-
+        marginTop: '28%'
     },
     name: {
         fontSize: 20,

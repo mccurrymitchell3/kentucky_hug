@@ -53,12 +53,22 @@ app.get('/create_friends_table', (req, res) => {
     });
 });
 
+//Create friend requests table
+app.get('/create_friend_requests_table', (req, res) => {
+    let sql = 'CREATE TABLE friend_requests(username VARCHAR(100) NOT NULL, friend_username VARCHAR(100) NOT NULL)';
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log('Friend Requests table created...');
+        res.send('Friend Requests table created...');
+    });
+});
+
 //Register user
 app.post('/register_user', (req, res) => {
 
     let credentials = { first_name: req.body.firstName, last_name: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password };
-
     var sql = `SELECT * FROM users WHERE username ='${req.body.username}'`;
+
     db.query(sql, (err, result) => {
         if (err) throw err;
         // Check if account already exists
@@ -74,6 +84,18 @@ app.post('/register_user', (req, res) => {
             console.log('New user ' + req.body.username + ' was successfully registered!')
             res.send({ 'accountExists': false });
         }
+    });
+});
+
+app.post('/request_friend', function (req, res) {
+
+    let entry = { username: req.body.username, friend_username: req.body.friend_username };
+    let sql = 'INSERT IGNORE INTO friend_requests SET ?';
+
+    db.query(sql, entry, (err, result) => {
+        if (err) throw err;
+        console.log(req.body.username + ' sent friend request to ' + req.body.friend_username + '!');
+        res.send(result);
     });
 });
 

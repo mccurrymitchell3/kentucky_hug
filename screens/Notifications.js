@@ -11,12 +11,12 @@ export default class Home extends Component {
 
     render() {
 
-        const posts = [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Mitch McCurry', caption: 'Love this!'}]
+        const notifs = []
         return (
             <View style={styles.screen}>
                 <Header />
                     <FlatList
-                        data={posts}
+                        data={notifs}
                         renderItem={({ item }) =>
                             <TouchableOpacity
                                 // onPress={() => Alert.alert('Post')}

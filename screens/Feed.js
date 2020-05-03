@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -55,12 +55,34 @@ export default class Feed extends Component {
         return (
             <View style={styles.screen}>
                 <Header />
+                <View style={styles.buttons}>
+                    <TouchableOpacity style={styles.post}>
+                        <FontAwesome
+                            name='pencil-square-o'
+                            style={styles.icon}
+                        />
+                        <Text>
+                            New Post
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                    style={styles.friend}
+                    onPress={() => this.props.navigation.navigate('AddFriend')}>
+                        <MaterialCommunityIcons
+                            name='account-multiple-plus'
+                            style={styles.icon}
+                        />
+                        <Text>
+                            Add Friend
+                        </Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.tabs}>
                     <TouchableOpacity
                         onPress={() => this.setState({selectedTab: 'Friends'})}
                         style={{
-                            width: '33%',
-                            height: '230%',
+                            width: '33.3%',
+                            height: '138%',
                             borderTopLeftRadius: 10,
                             borderBottomLeftRadius: 10,
                             backgroundColor: this.state.selectedTab == 'Friends' ? 'white' : '#EEE7DC'
@@ -70,12 +92,12 @@ export default class Feed extends Component {
                     <TouchableOpacity
                         onPress={() => this.setState({selectedTab: 'Events'})}
                         style={{
-                            width: '33%',
+                            width: '33.3%',
                             borderRightColor: 'black',
                             borderRightWidth: 1,
                             borderLeftColor: 'black',
                             borderLeftWidth: 1,
-                            height: '230%',
+                            height: '138%',
                             backgroundColor: this.state.selectedTab == 'Events' ? 'white' : '#EEE7DC'
                         }}>
                         <Text style={styles.tabText}>Events</Text>
@@ -83,8 +105,8 @@ export default class Feed extends Component {
                     <TouchableOpacity
                         onPress={() => this.setState({selectedTab: 'Groups'})}
                         style={{
-                            width: '33%',
-                            height: '230%',
+                            width: '33.3%',
+                            height: '138%',
                             borderTopRightRadius: 10,
                             borderBottomRightRadius: 10,
                             backgroundColor: this.state.selectedTab == 'Groups' ? 'white' : '#EEE7DC'
@@ -131,6 +153,13 @@ const styles = StyleSheet.create({
         marginBottom: '1%',
         backgroundColor: 'white'
     },
+    buttons: {
+        height: '8%',
+        width: '100%',
+        flexDirection: 'row',
+        alignItems:  'center',
+        justifyContent: 'space-evenly'
+    },
     tabs: {
         flexDirection: 'row',
         borderColor: 'black',
@@ -139,7 +168,6 @@ const styles = StyleSheet.create({
         height: '5%',
         width: '80%',
         justifyContent: 'space-between',
-        marginTop: '3%',
         marginBottom: '3%'
     },
     tabText: {
@@ -171,5 +199,18 @@ const styles = StyleSheet.create({
     },
     caption: {
         margin: 10
+    },
+    icon: {
+        fontSize: 30,
+        margin: 10
+    },
+    post: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginLeft: -10
+    },
+    friend: {
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });

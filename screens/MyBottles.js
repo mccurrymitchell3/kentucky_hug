@@ -4,6 +4,7 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 
 import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
 
@@ -15,7 +16,7 @@ export default class MyBottles extends Component {
             <View style={styles.screen}>
                 <Header />
                 <ScrollView style={styles.scroll}>
-                    <TextInput style={styles.search}>Search</TextInput>
+                    <SearchBar />
                     <FlatList
                         data={bottles}
                         renderItem={({ item }) =>
@@ -63,16 +64,6 @@ const styles = StyleSheet.create({
     },
     scroll: {
         width: '100%'
-    },
-    search: {
-        height: 35,
-        textAlign: 'center',
-        fontSize: 18,
-        margin: '4%',
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 30,
-        backgroundColor: '#DCDCDC'
     },
     list: {
         height: 120,

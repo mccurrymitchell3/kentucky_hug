@@ -14,6 +14,8 @@ import Feed from './screens/Feed';
 import Search from './screens/Search';
 import Achievements from './screens/Achievements';
 import Register from './screens/Register';
+import AddFriend from './screens/AddFriend';
+import Notifications from './screens/Notifications';
 
 export default function App() {
   return (
@@ -90,6 +92,18 @@ const AppNavigator = createStackNavigator({
   },
   Achievements: {
     screen: Achievements,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  AddFriend: {
+    screen: AddFriend,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  Notifications: {
+    screen: Notifications,
     navigationOptions: {
       headerShown: false
     }
