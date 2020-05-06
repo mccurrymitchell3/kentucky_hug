@@ -11,6 +11,7 @@ import kentucky_bourbon_festival from '../images/kentucky_bourbon_festival.png'
 export default class Feed extends Component {
 
     state = {
+        username: this.props.navigation.state.params.username,
         selectedTab: 'Friends',
         friendsFeed: [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Mitch McCurry', description: 'rated a bourbon', photo: elijah_craig_small_batch_bourbon, caption: 'Love this!'}],
         eventsFeed: [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Kentucky Bourbon Festival', description: '', photo: kentucky_bourbon_festival, caption: 'Come try the best bourbons in the world!'}],
@@ -67,7 +68,9 @@ export default class Feed extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.friend}
-                    onPress={() => this.props.navigation.navigate('AddFriend')}>
+                    onPress={() => this.props.navigation.navigate('AddFriend', {
+                            username: this.state.username
+                    })}>
                         <MaterialCommunityIcons
                             name='account-multiple-plus'
                             style={styles.icon}

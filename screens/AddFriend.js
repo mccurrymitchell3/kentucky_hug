@@ -10,7 +10,9 @@ import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_sma
 
 export default class AddFriend extends Component {
 
-    hello() {Alert.alert('Success', 'Test');}
+    state = {
+        username: this.props.navigation.state.params.username
+    }
 
     requestFriend(username, friend_username) {
         fetch('http://' + credentials.ipAddr + ':3000/request_friend', {
@@ -50,7 +52,7 @@ export default class AddFriend extends Component {
                                     <Text style={styles.mutuals}>{item.mutuals} mutual friends</Text>
                                 </View>
                                 <TouchableOpacity
-                                    onPress={() => this.requestFriend('Mmccurry3', item.username)}
+                                    onPress={() => this.requestFriend(this.state.username, item.username)}
                                     style={styles.add}>
                                         <Text style={styles.addText}>Add</Text>
                                 </TouchableOpacity>

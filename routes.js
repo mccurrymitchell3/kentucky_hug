@@ -63,10 +63,12 @@ app.get('/create_friend_requests_table', (req, res) => {
     });
 });
 
+// Post Requests =====================================================================
+
 //Register user
 app.post('/register_user', (req, res) => {
 
-    let credentials = { first_name: req.body.firstName, last_name: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password };
+    let user_data = { first_name: req.body.firstName, last_name: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password };
     var sql = `SELECT * FROM users WHERE username ='${req.body.username}'`;
 
     db.query(sql, (err, result) => {
@@ -87,6 +89,20 @@ app.post('/register_user', (req, res) => {
     });
 });
 
+// Validate user
+app.post('/validate_user', function (req, res) {
+
+    let sql = `SELECT username, email, first_name, last_name ` +
+        `FROM users WHERE username ='${req.body.username}' AND password = '${req.body.password}'`;
+
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(req.body.username + ' successfully logged in!');
+        res.send(result);
+    });
+});
+
+// Request friend
 app.post('/request_friend', function (req, res) {
 
     let entry = { username: req.body.username, friend_username: req.body.friend_username };
@@ -99,6 +115,30 @@ app.post('/request_friend', function (req, res) {
     });
 });
 
+// Add friend
+app.post('/add_friend', function (req, res) {
+
+    let entry = { username: req.body.username, friend_username: req.body.friend_username };
+    let sql = 'INSERT IGNORE INTO friends SET ?';
+
+    db.query(sql, entry, (err, result) => {
+        if (err) throw err;
+        console.log('You are now friends with ' + req.body.username);
+        res.send(result);
+    });
+});
+
+// Remove friend request
+app.post('/remove_friend_request', function (req, res) {
+    console.log(req.body);
+    sql = `DELETE FROM friend_requests WHERE username = '${req.body.username}' AND friend_username = '${req.body.friend_username}'`;
+    db.query(sql, (err, result) => {
+       if (err) throw error;
+       res.send('Record has been deleted!');
+     });
+ });
+
+// Get Requests =====================================================================
 
 // Get users
 app.get('/get_users', function (req, res) {
@@ -110,8 +150,8 @@ app.get('/get_users', function (req, res) {
 });
 
 // Get user by id
-app.get('/get_user_by_id', function (req, res) {
-    let sql = `SELECT * FROM users WHERE user_id='${req.query.user_id}'`;
+app.get('/get_user_by_username', function (req, res) {
+    let sql = `SELECT username, first_name, last_name FROM users WHERE username='${req.query.username}'`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         res.send(result);
@@ -130,6 +170,15 @@ app.get('/get_bottles', function (req, res) {
 // Get friends
 app.get('/get_friends', function (req, res) {
     let sql = `SELECT friend_id FROM friends WHERE user_id = '${req.query.user_id}'`;
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
+// Get friend requests
+app.get('/get_friend_requests', function (req, res) {
+    let sql = `SELECT username FROM friend_requests WHERE friend_username = '${req.query.username}'`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         res.send(result);

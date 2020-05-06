@@ -3,7 +3,7 @@ import { Alert, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, 
 
 import barrels from '../images/barrels.jpg';
 
-const credentials = require('../credentials');
+import credentials from '../credentials';
 
 export default class Register extends Component {
 

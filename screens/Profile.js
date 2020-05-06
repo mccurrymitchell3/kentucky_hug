@@ -10,6 +10,13 @@ import Header from '../components/Header';
 
 export default class Profile extends Component {
 
+    state = {
+        firstName: this.props.navigation.state.params.firstName,
+        lastName: this.props.navigation.state.params.lastName,
+        email: this.props.navigation.state.params.email,
+        username: this.props.navigation.state.params.username
+    }
+
     render() {
         return (
             <View style={styles.screen}>
@@ -21,13 +28,15 @@ export default class Profile extends Component {
                             style={styles.background}
                             blurRadius={0}>
                                 <Image source={profile_icon} style={styles.profile_pic}/>
-                                <Text style={styles.name}>Mitch McCurry</Text>
+                                <Text style={styles.name}>{this.state.firstName} {this.state.lastName}</Text>
                         </ImageBackground>
                     </View>
                     <View style={styles.profileList}>
                         <TouchableOpacity
                         style={styles.list}
-                        onPress={() => this.props.navigation.navigate('MyBottles')}>
+                        onPress={() => this.props.navigation.navigate('MyBottles', {
+                            username: this.state.username
+                        })}>
                             <MaterialCommunityIcons
                                 name="bottle-wine"
                                 style={styles.icon}
@@ -36,7 +45,9 @@ export default class Profile extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                         style={styles.list}
-                        onPress={() => this.props.navigation.navigate('Ratings')}>
+                        onPress={() => this.props.navigation.navigate('Ratings', {
+                            username: this.state.username
+                        })}>
                             <MaterialCommunityIcons
                                 name="star-half"
                                 style={styles.icon}
@@ -45,7 +56,9 @@ export default class Profile extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                         style={styles.list}
-                        onPress={() => this.props.navigation.navigate('Wishlist')}>
+                        onPress={() => this.props.navigation.navigate('Wishlist', {
+                            username: this.state.username
+                        })}>
                             <MaterialCommunityIcons
                                 name="format-list-bulleted"
                                 style={styles.icon}
@@ -54,7 +67,9 @@ export default class Profile extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                         style={styles.list}
-                        onPress={() => this.props.navigation.navigate('Notifications')}>
+                        onPress={() => this.props.navigation.navigate('Notifications', {
+                            username: this.state.username
+                        })}>
                             <MaterialCommunityIcons
                                 name="bell"
                                 style={styles.icon}
@@ -63,7 +78,9 @@ export default class Profile extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                         style={styles.list}
-                        onPress={() => this.props.navigation.navigate('Achievements')}>
+                        onPress={() => this.props.navigation.navigate('Achievements', {
+                            username: this.state.username
+                        })}>
                             <MaterialCommunityIcons
                                 name="medal"
                                 style={styles.icon}

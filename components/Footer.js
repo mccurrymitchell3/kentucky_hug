@@ -5,30 +5,50 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import profile_icon from '../images/profile_icon.png';
 
 export default class Footer extends Component {
+    
+    state = {
+        username: this.props.navigation.state.params.username
+    }
 
     render() {
         return (
             <View style={styles.screen}>
                 <TouchableOpacity
-                    onPress={() => {this.props.navigation.navigate('Home')}}
+                    onPress={() => {
+                        this.props.navigation.navigate('Home', {
+                            username: this.state.username
+                        })
+                    }}
                     style={styles.item}>
                         <Ionicons name="ios-home" style={{ fontSize: 35, marginTop: 20 }} />
                         <Text style={styles.text}>Home</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => {this.props.navigation.navigate('Search')}}
+                    onPress={() => {
+                        this.props.navigation.navigate('Search', {
+                            username: this.state.username
+                        })
+                    }}
                     style={styles.item}>
                         <Ionicons name="md-search" style={{ fontSize: 35, marginTop: 20 }} />
                         <Text style={styles.text}>Search</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => {this.props.navigation.navigate('Scan')}}
+                    onPress={() => {
+                        this.props.navigation.navigate('Scan', {
+                            username: this.state.username
+                        })
+                    }}
                     style={styles.item}>
                         <Ionicons name="ios-camera" style={{ fontSize: 45, marginTop: -5, marginBottom: -10 }} />
                         <Text style={styles.text}>Scan</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => {this.props.navigation.navigate('Feed')}}
+                    onPress={() => {
+                        this.props.navigation.navigate('Feed', {
+                            username: this.state.username
+                        })
+                    }}
                     style={styles.item}>
                         <FontAwesome
                             name="newspaper-o"

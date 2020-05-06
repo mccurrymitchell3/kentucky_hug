@@ -9,6 +9,10 @@ import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_sma
 
 export default class Home extends Component {
 
+    state = {
+        username: this.props.navigation.state.params.username
+    }
+
     render() {
 
         const posts = [{profile_pic: elijah_craig_small_batch_bourbon, name: 'Mitch McCurry', caption: 'Love this!'}]
