@@ -3,7 +3,6 @@ import { Alert, FlatList, Image, ScrollView, StyleSheet, Text, TextInput, Toucha
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import credentials from '../credentials';
 
 import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
@@ -105,28 +104,27 @@ export default class Home extends Component {
     render() {
         return (
             <View style={styles.screen}>
-                <Header />
-                    <FlatList
-                        data={this.state.notifications}
-                        extraData={this.state}
-                        renderItem={({ item }) =>
-                            <View style={styles.list}>
-                                <Image source={item.profile_pic} style={styles.image} />
-                                <View>
-                                    <Text style={styles.name}>{item.firstName} {item.lastName}</Text>
-                                    <Text style={styles.mutuals}>{item.mutuals} mutual friends</Text>
-                                </View>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        this.addFriend(item.username, this.state.username);
-                                        this.removeFriendRequest(item.username, this.state.username);
-                                    }}
-                                    style={styles.add}>
-                                        <Text style={styles.addText}>Add</Text>
-                                </TouchableOpacity>
+                <FlatList
+                    data={this.state.notifications}
+                    extraData={this.state}
+                    renderItem={({ item }) =>
+                        <View style={styles.list}>
+                            <Image source={item.profile_pic} style={styles.image} />
+                            <View>
+                                <Text style={styles.name}>{item.firstName} {item.lastName}</Text>
+                                <Text style={styles.mutuals}>{item.mutuals} mutual friends</Text>
                             </View>
-                        }
-                    />
+                            <TouchableOpacity
+                                onPress={() => {
+                                    this.addFriend(item.username, this.state.username);
+                                    this.removeFriendRequest(item.username, this.state.username);
+                                }}
+                                style={styles.add}>
+                                    <Text style={styles.addText}>Add</Text>
+                            </TouchableOpacity>
+                        </View>
+                    }
+                />
                 <Footer navigation={this.props.navigation} />
             </View>
         )

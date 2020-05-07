@@ -3,7 +3,6 @@ import { Alert, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from
 
 import credentials from '../credentials';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 
 import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
@@ -40,7 +39,6 @@ export default class AddFriend extends Component {
 
         return (
             <View style={styles.screen}>
-                <Header />
                 <SearchBar />
                     <FlatList
                         data={suggestions}

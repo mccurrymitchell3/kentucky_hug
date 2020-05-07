@@ -3,14 +3,12 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 
 export default class Ratings extends Component {
 
     render() {
         return (
             <View style={styles.screen}>
-                <Header />
                 <Text style={styles.title}>Badges</Text>
                 <View style={styles.list}>
                     <FlatList

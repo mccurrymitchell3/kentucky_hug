@@ -60,7 +60,7 @@ export default class Feed extends Component {
                     <TouchableOpacity style={styles.post}>
                         <FontAwesome
                             name='pencil-square-o'
-                            style={styles.icon}
+                            style={styles.postIcon}
                         />
                         <Text>
                             New Post
@@ -73,7 +73,7 @@ export default class Feed extends Component {
                     })}>
                         <MaterialCommunityIcons
                             name='account-multiple-plus'
-                            style={styles.icon}
+                            style={styles.friendIcon}
                         />
                         <Text>
                             Add Friend
@@ -203,8 +203,12 @@ const styles = StyleSheet.create({
     caption: {
         margin: 10
     },
-    icon: {
+    postIcon: {
         fontSize: 30,
+        margin: 10
+    },
+    friendIcon: {
+        fontSize: 34,
         margin: 10
     },
     post: {

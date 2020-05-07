@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 
 import profile_background from '../images/profile_background.jpg';
 import profile_icon from '../images/profile_icon.png';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 
 export default class Profile extends Component {
 
@@ -20,7 +19,18 @@ export default class Profile extends Component {
     render() {
         return (
             <View style={styles.screen}>
-                <Header />
+                <View style={styles.header}>
+                    <TouchableOpacity
+                    style={styles.settings}
+                    onPress={() => this.props.navigation.navigate('Settings', {
+                        username: this.state.username
+                    })}>
+                        <SimpleLineIcons
+                            name="settings"
+                            style={styles.settingsIcon}
+                        />
+                    </TouchableOpacity>
+                </View>
                 <ScrollView style={styles.scroll}>
                     <View style={styles.profileTop}>
                         <ImageBackground
@@ -101,11 +111,29 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#EEE7DC'
     },
+    header: {
+        flexDirection: 'row',
+        height: '10%',
+        width: '100%',
+        backgroundColor: 'white'
+    },
+    settings: {
+        width: '9%',
+        height: '50%',
+        position: 'absolute',
+        bottom: 5,
+        right: 5
+    },
+    settingsIcon: {
+        fontSize: 30,
+        width: '100%',
+        height: '100%'
+    },
     scroll: {
         width: '100%'
     },
     background: {
-        height: '100%',
+        height: '90%',
         width: '100%',
         alignItems: 'center'
     },
@@ -113,7 +141,7 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         borderRadius: 100,
-        marginTop: '40%'
+        marginTop: '30%'
     },
     profileTop: {
         height: '40%',
@@ -122,7 +150,7 @@ const styles = StyleSheet.create({
     profileList: {
         height: '40%',
         width: '100%',
-        marginTop: '28%'
+        marginTop: '25%'
     },
     name: {
         fontSize: 20,

@@ -3,7 +3,6 @@ import { FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpac
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 
 import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
@@ -14,7 +13,6 @@ export default class MyBottles extends Component {
         const bottles = [{label: elijah_craig_small_batch_bourbon, distillery: 'Heaven Hill', name: 'Elijah Craig Small Batch Bourbon', location: 'United States of America', rating: 4.2, price: '$20.00'}, {label: elijah_craig_small_batch_bourbon, distillery: 'Elijah Craig', name: 'Bourbon', location: 'Kentucky, USA', rating: 4.2, price: '$20.00'}, {label: elijah_craig_small_batch_bourbon, distillery: 'Elijah Craig', name: 'Bourbon', location: 'USA', rating: 4.2, price: '$20.00'}, {label: elijah_craig_small_batch_bourbon, distillery: 'Elijah Craig', name: 'Bourbon', location: 'USA', rating: 4.2, price: '$20.00'}, {label: elijah_craig_small_batch_bourbon, distillery: 'Elijah Craig', name: 'Bourbon', location: 'USA', rating: 4.2, price: '$20.00'}]
         return (
             <View style={styles.screen}>
-                <Header />
                 <ScrollView style={styles.scroll}>
                     <SearchBar />
                     <FlatList

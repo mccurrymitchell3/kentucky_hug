@@ -16,6 +16,7 @@ import Achievements from './screens/Achievements';
 import Register from './screens/Register';
 import AddFriend from './screens/AddFriend';
 import Notifications from './screens/Notifications';
+import Settings from './screens/Settings';
 
 export default function App() {
   return (
@@ -57,7 +58,9 @@ const AppNavigator = createStackNavigator({
   MyBottles: {
     screen: MyBottles,
     navigationOptions: {
-      headerShown: false
+      title: 'My Bottles',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
     }
   },
   Scan: {
@@ -69,13 +72,17 @@ const AppNavigator = createStackNavigator({
   Ratings: {
     screen: Ratings,
     navigationOptions: {
-      headerShown: false
+      title: 'Ratings',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
     }
   },
   Wishlist: {
     screen: Wishlist,
     navigationOptions: {
-      headerShown: false
+      title: 'Wishlist',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
     }
   },
   Feed: {
@@ -93,19 +100,33 @@ const AppNavigator = createStackNavigator({
   Achievements: {
     screen: Achievements,
     navigationOptions: {
-      headerShown: false
+      title: 'Achievements',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
     }
   },
   AddFriend: {
     screen: AddFriend,
     navigationOptions: {
-      headerShown: false
+      title: 'Add Friend',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
     }
   },
   Notifications: {
     screen: Notifications,
     navigationOptions: {
-      headerShown: false
+      title: 'Notifications',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
+    }
+  },
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      title: 'Settings',
+      headerTintColor: 'black',
+      headerBackTitleVisible: false
     }
   }
 }, {

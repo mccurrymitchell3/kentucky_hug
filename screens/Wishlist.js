@@ -3,7 +3,6 @@ import { FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpac
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 
 import elijah_craig_small_batch_bourbon from '../images/bourbon/elijah_craig_small_batch_bourbon.jpg';
@@ -33,7 +32,6 @@ export default class Wishlist extends Component {
         else {
             return (
                 <View style={styles.screen}>
-                    <Header />
                     <SearchBar />
                     <ScrollView style={styles.scroll}>
                         <FlatList
