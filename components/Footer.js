@@ -7,12 +7,20 @@ import profile_icon from '../images/profile_icon.png';
 export default class Footer extends Component {
     
     state = {
-        username: this.props.navigation.state.params.username
+        username: this.props.navigation.state.params.username,
+        header: this.props.header || false
     }
 
     render() {
         return (
-            <View style={styles.screen}>
+            <View style={{
+                flexDirection: 'row',
+                height: this.state.header ? '9%' : '8%',
+                width: '100%',
+                backgroundColor: 'white',
+                position: 'absolute',
+                bottom: 0
+            }}>
                 <TouchableOpacity
                     onPress={() => {
                         this.props.navigation.navigate('Home', {
@@ -68,14 +76,6 @@ export default class Footer extends Component {
 }
 
 const styles = StyleSheet.create({
-    screen: {
-        flexDirection: 'row',
-        height: '8%',
-        width: '100%',
-        backgroundColor: 'white',
-        position: 'absolute',
-        bottom: 0
-    },
     item: {
         height: '100%',
         width: '20%',

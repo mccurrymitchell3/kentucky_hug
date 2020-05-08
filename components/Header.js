@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: '6%',
         width: '100%',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        position: 'absolute',
+        top: 0
     }
 });

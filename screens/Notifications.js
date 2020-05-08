@@ -125,7 +125,7 @@ export default class Home extends Component {
                         </View>
                     }
                 />
-                <Footer navigation={this.props.navigation} />
+                <Footer navigation={this.props.navigation} header={true} />
             </View>
         )
     }

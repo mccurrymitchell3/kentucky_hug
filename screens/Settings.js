@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 
-import profile_background from '../images/profile_background.jpg';
-import profile_icon from '../images/profile_icon.png';
-
 import Footer from '../components/Footer';
 
 export default class Settings extends Component {
@@ -99,7 +96,7 @@ export default class Settings extends Component {
                         </View>
                     </View>
                 </View>
-                <Footer navigation={this.props.navigation} />
+                <Footer navigation={this.props.navigation} header={true}/>
             </View>
         )
     }

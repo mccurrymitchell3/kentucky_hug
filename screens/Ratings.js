@@ -48,7 +48,7 @@ export default class Ratings extends Component {
                         }
                     />
                 </ScrollView>
-                <Footer navigation={this.props.navigation} />
+                <Footer navigation={this.props.navigation} header={true} />
             </View>
         )
     }
